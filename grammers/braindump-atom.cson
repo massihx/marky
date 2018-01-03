@@ -1,0 +1,79 @@
+scopeName: 'source.braindump<scope>' 
+name: 'BrainDump (.BD)'
+fileTypes: [
+	''
+	'bd'
+	'BD'
+]
+firstLineMatch: ''
+foldingStartMarker: ''
+foldingStopMarker: ''
+patterns: [ 
+	{
+		'include': 'source.gfm'
+	},
+	{
+		match: '\\b(Flight) (Manual)\\b'
+		name: 'entity.other.braindump'
+		captures:
+			1:
+				name: 'keyword.other.flight.braindump'
+			2:
+				name: 'keyword.other.manual.braindump'
+	},
+	{
+	  	name: 'test1.braindump'
+		match: '\\b(Massih) (Hazrati)\\b'
+		'captures':
+			1:
+				name: 'massih.braindump'
+			2:
+				name: 'hazrati.braindump'
+	},
+	{
+		name: 'meta.block.note.flight-manual'
+		begin: '({{)(#note)(}})'
+		beginCaptures:
+			0: # The 0 capture contains the entire match
+				name: 'meta.block.start.braindump'
+			1:
+				name: 'punctuation.definition.block.braindump'
+			2:
+				name: 'keyword.note.braindump'
+			3:
+				name: 'punctuation.definition.block.braindump'
+		end: '({{)(/note)(}})'
+		endCaptures:
+			0:
+				name: 'meta.block.end.braindump'
+			1:
+				name: 'punctuation.definition.block.braindump'
+			2:
+				name: 'keyword.note.braindump'
+			3:
+			name: 'punctuation.definition.block.braindump'
+		
+		patterns: [
+			{
+				match: '\\b(Flight) (Manual)\\b'
+				name: 'entity.other.braindump'
+				captures:
+					1:
+						name: 'keyword.other.flight.braindump'
+					2:
+						name: 'keyword.other.manual.braindump'
+			}
+		]
+	}
+]
+
+
+
+
+
+
+
+
+
+
+
